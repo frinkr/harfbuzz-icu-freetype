@@ -1,3 +1,6 @@
 [submodule "harfbuzz"]
 	path = harfbuzz
 	url = https://github.com/behdad/harfbuzz.git
+[submodule "freetype"]
+	path = freetype
+	url = https://github.com/winlibs/freetype.git

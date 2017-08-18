@@ -14,7 +14,7 @@ option(WITH_BZip2 "Freetype: Enable bzip2 " OFF)
 option(WITH_HarfBuzz "Freetype: Enable harfbuzz" OFF)
 option(WITH_PNG "Freetype: Build with PNG" OFF)
 
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/freetype-2.6)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/freetype)
 
 ## ICU-common ##
 ################
