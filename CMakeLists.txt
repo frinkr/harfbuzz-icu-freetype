@@ -248,6 +248,7 @@ set(HARFBUZZ_SRC_FILES
     harfbuzz/src/hb-ot-layout.cc
     harfbuzz/src/hb-ot-map.cc
     harfbuzz/src/hb-ot-shape.cc
+    harfbuzz/src/hb-ot-var.cc
     harfbuzz/src/hb-ot-shape-complex-arabic.cc
     harfbuzz/src/hb-ot-shape-complex-default.cc
     harfbuzz/src/hb-ot-shape-complex-hangul.cc
@@ -274,7 +275,7 @@ endif()
 
 set(HARFBUZZ_INCLUDE_DIRS
     ${CMAKE_CURRENT_SOURCE_DIR}/harfbuzz/src
-    ${CMAKE_CURRENT_SOURCE_DIR}/freetype-2.6/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/freetype/include/
     ${HARFBUZZ_UNICODE_INCLUDE}
     ${CMAKE_CURRENT_SOURCE_DIR}/
     CACHE INTERNAL "Harfbuzz include dirs" FORCE)
@@ -283,7 +284,7 @@ target_include_directories(harfbuzz
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/harfbuzz-generated
     ${CMAKE_CURRENT_SOURCE_DIR}/harfbuzz/src
-    ${CMAKE_CURRENT_SOURCE_DIR}/freetype-2.6/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/freetype/include
     ${HARFBUZZ_UNICODE_INCLUDE}
     PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/)
