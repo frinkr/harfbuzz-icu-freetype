@@ -1,5 +1,5 @@
 
-#line 1 "hb-ot-shape-complex-use-machine.rl"
+#line 1 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
 /*
  * Copyright © 2015  Mozilla Foundation.
  * Copyright © 2015  Google, Inc.
@@ -34,337 +34,19 @@
 #include "hb-private.hh"
 
 
-#line 38 "hb-ot-shape-complex-use-machine.hh"
-static const unsigned char _use_syllable_machine_trans_keys[] = {
-	0u, 0u, 4u, 4u, 1u, 1u, 0u, 39u, 21u, 21u, 8u, 39u, 8u, 39u, 1u, 1u, 
-	8u, 39u, 8u, 39u, 8u, 39u, 8u, 26u, 8u, 26u, 8u, 26u, 8u, 39u, 8u, 39u, 
-	8u, 39u, 8u, 39u, 8u, 39u, 8u, 39u, 8u, 39u, 8u, 39u, 8u, 39u, 8u, 39u, 
-	8u, 39u, 8u, 39u, 8u, 39u, 1u, 1u, 8u, 39u, 8u, 39u, 8u, 26u, 8u, 26u, 
-	8u, 26u, 8u, 39u, 8u, 39u, 8u, 39u, 8u, 39u, 8u, 39u, 8u, 39u, 8u, 39u, 
-	8u, 39u, 12u, 21u, 12u, 13u, 8u, 39u, 8u, 39u, 8u, 39u, 8u, 39u, 8u, 26u, 
-	8u, 26u, 8u, 26u, 8u, 39u, 8u, 39u, 8u, 39u, 8u, 39u, 8u, 39u, 8u, 39u, 
-	8u, 39u, 8u, 39u, 8u, 39u, 8u, 39u, 1u, 39u, 8u, 39u, 21u, 42u, 41u, 42u, 
-	42u, 42u, 0
-};
+#line 38 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.hh"
+static const int use_syllable_machine_start = 1;
+static const int use_syllable_machine_first_final = 1;
+static const int use_syllable_machine_error = -1;
 
-static const char _use_syllable_machine_key_spans[] = {
-	0, 1, 1, 40, 1, 32, 32, 1, 
-	32, 32, 32, 19, 19, 19, 32, 32, 
-	32, 32, 32, 32, 32, 32, 32, 32, 
-	32, 32, 32, 1, 32, 32, 19, 19, 
-	19, 32, 32, 32, 32, 32, 32, 32, 
-	32, 10, 2, 32, 32, 32, 32, 19, 
-	19, 19, 32, 32, 32, 32, 32, 32, 
-	32, 32, 32, 32, 39, 32, 22, 2, 
-	1
-};
-
-static const short _use_syllable_machine_index_offsets[] = {
-	0, 0, 2, 4, 45, 47, 80, 113, 
-	115, 148, 181, 214, 234, 254, 274, 307, 
-	340, 373, 406, 439, 472, 505, 538, 571, 
-	604, 637, 670, 703, 705, 738, 771, 791, 
-	811, 831, 864, 897, 930, 963, 996, 1029, 
-	1062, 1095, 1106, 1109, 1142, 1175, 1208, 1241, 
-	1261, 1281, 1301, 1334, 1367, 1400, 1433, 1466, 
-	1499, 1532, 1565, 1598, 1631, 1671, 1704, 1727, 
-	1730
-};
-
-static const char _use_syllable_machine_indicies[] = {
-	1, 0, 3, 2, 4, 5, 6, 
-	4, 1, 5, 8, 8, 7, 8, 8, 
-	3, 9, 8, 8, 8, 4, 4, 10, 
-	11, 8, 8, 12, 13, 14, 15, 16, 
-	17, 18, 12, 19, 20, 21, 22, 23, 
-	24, 8, 25, 26, 27, 8, 29, 28, 
-	31, 30, 30, 32, 33, 30, 30, 30, 
-	30, 30, 30, 30, 30, 34, 35, 36, 
-	37, 38, 39, 40, 41, 35, 42, 34, 
-	43, 44, 45, 46, 30, 47, 48, 49, 
-	30, 31, 30, 30, 32, 33, 30, 30, 
-	30, 30, 30, 30, 30, 30, 50, 35, 
-	36, 37, 38, 39, 40, 41, 35, 42, 
-	43, 43, 44, 45, 46, 30, 47, 48, 
-	49, 30, 32, 51, 31, 30, 30, 32, 
-	33, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 35, 36, 37, 38, 39, 40, 
-	41, 35, 42, 43, 43, 44, 45, 46, 
-	30, 47, 48, 49, 30, 31, 30, 30, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 35, 36, 37, 38, 39, 
-	30, 30, 30, 30, 30, 30, 44, 45, 
-	46, 30, 47, 48, 49, 30, 31, 30, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 30, 30, 36, 37, 38, 
-	39, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 47, 48, 49, 30, 31, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 30, 30, 30, 30, 37, 
-	38, 39, 30, 31, 30, 30, 30, 30, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 30, 38, 39, 30, 31, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	30, 39, 30, 31, 30, 30, 30, 30, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 37, 38, 39, 30, 30, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	47, 48, 49, 30, 31, 30, 30, 30, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 30, 37, 38, 39, 30, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 48, 49, 30, 31, 30, 30, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 30, 30, 37, 38, 39, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 30, 49, 30, 31, 30, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 30, 30, 36, 37, 38, 
-	39, 30, 30, 30, 30, 30, 30, 44, 
-	45, 46, 30, 47, 48, 49, 30, 31, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 30, 30, 30, 36, 37, 
-	38, 39, 30, 30, 30, 30, 30, 30, 
-	30, 45, 46, 30, 47, 48, 49, 30, 
-	31, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 30, 30, 30, 30, 36, 
-	37, 38, 39, 30, 30, 30, 30, 30, 
-	30, 30, 30, 46, 30, 47, 48, 49, 
-	30, 31, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 30, 30, 30, 30, 35, 
-	36, 37, 38, 39, 30, 41, 35, 30, 
-	30, 30, 44, 45, 46, 30, 47, 48, 
-	49, 30, 31, 30, 30, 30, 30, 30, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	35, 36, 37, 38, 39, 30, 30, 35, 
-	30, 30, 30, 44, 45, 46, 30, 47, 
-	48, 49, 30, 31, 30, 30, 30, 30, 
-	30, 30, 30, 30, 30, 30, 30, 30, 
-	30, 35, 36, 37, 38, 39, 40, 41, 
-	35, 30, 30, 30, 44, 45, 46, 30, 
-	47, 48, 49, 30, 31, 30, 30, 32, 
-	33, 30, 30, 30, 30, 30, 30, 30, 
-	30, 30, 35, 36, 37, 38, 39, 40, 
-	41, 35, 42, 30, 43, 44, 45, 46, 
-	30, 47, 48, 49, 30, 31, 30, 30, 
-	32, 33, 30, 30, 30, 30, 30, 30, 
-	30, 30, 30, 35, 36, 37, 38, 39, 
-	40, 41, 35, 42, 34, 43, 44, 45, 
-	46, 30, 47, 48, 49, 30, 53, 52, 
-	52, 54, 55, 52, 52, 52, 52, 52, 
-	52, 52, 52, 56, 52, 57, 58, 59, 
-	60, 61, 62, 57, 63, 56, 64, 52, 
-	52, 52, 52, 65, 66, 67, 52, 53, 
-	52, 52, 54, 55, 52, 52, 52, 52, 
-	52, 52, 52, 52, 68, 52, 57, 58, 
-	59, 60, 61, 62, 57, 63, 64, 64, 
-	52, 52, 52, 52, 65, 66, 67, 52, 
-	54, 51, 53, 52, 52, 54, 55, 52, 
-	52, 52, 52, 52, 52, 52, 52, 52, 
-	52, 57, 58, 59, 60, 61, 62, 57, 
-	63, 64, 64, 52, 52, 52, 52, 65, 
-	66, 67, 52, 53, 52, 52, 52, 52, 
-	52, 52, 52, 52, 52, 52, 52, 52, 
-	52, 52, 57, 58, 59, 60, 52, 52, 
-	52, 52, 52, 52, 52, 52, 52, 52, 
-	65, 66, 67, 52, 53, 52, 52, 52, 
-	52, 52, 52, 52, 52, 52, 52, 52, 
-	52, 52, 52, 52, 58, 59, 60, 52, 
-	53, 52, 52, 52, 52, 52, 52, 52, 
-	52, 52, 52, 52, 52, 52, 52, 52, 
-	52, 59, 60, 52, 53, 52, 52, 52, 
-	52, 52, 52, 52, 52, 52, 52, 52, 
-	52, 52, 52, 52, 52, 52, 60, 52, 
-	53, 52, 52, 52, 52, 52, 52, 52, 
-	52, 52, 52, 52, 52, 52, 52, 52, 
-	58, 59, 60, 52, 52, 52, 52, 52, 
-	52, 52, 52, 52, 52, 65, 66, 67, 
-	52, 53, 52, 52, 52, 52, 52, 52, 
-	52, 52, 52, 52, 52, 52, 52, 52, 
-	52, 58, 59, 60, 52, 52, 52, 52, 
-	52, 52, 52, 52, 52, 52, 52, 66, 
-	67, 52, 53, 52, 52, 52, 52, 52, 
-	52, 52, 52, 52, 52, 52, 52, 52, 
-	52, 52, 58, 59, 60, 52, 52, 52, 
-	52, 52, 52, 52, 52, 52, 52, 52, 
-	52, 67, 52, 53, 52, 52, 52, 52, 
-	52, 52, 52, 52, 52, 52, 52, 52, 
-	52, 52, 57, 58, 59, 60, 52, 62, 
-	57, 52, 52, 52, 52, 52, 52, 52, 
-	65, 66, 67, 52, 53, 52, 52, 52, 
-	52, 52, 52, 52, 52, 52, 52, 52, 
-	52, 52, 52, 57, 58, 59, 60, 52, 
-	52, 57, 52, 52, 52, 52, 52, 52, 
-	52, 65, 66, 67, 52, 53, 52, 52, 
-	52, 52, 52, 52, 52, 52, 52, 52, 
-	52, 52, 52, 52, 57, 58, 59, 60, 
-	61, 62, 57, 52, 52, 52, 52, 52, 
-	52, 52, 65, 66, 67, 52, 53, 52, 
-	52, 54, 55, 52, 52, 52, 52, 52, 
-	52, 52, 52, 52, 52, 57, 58, 59, 
-	60, 61, 62, 57, 63, 52, 64, 52, 
-	52, 52, 52, 65, 66, 67, 52, 53, 
-	52, 52, 54, 55, 52, 52, 52, 52, 
-	52, 52, 52, 52, 52, 52, 57, 58, 
-	59, 60, 61, 62, 57, 63, 56, 64, 
-	52, 52, 52, 52, 65, 66, 67, 52, 
-	70, 71, 69, 69, 69, 69, 69, 69, 
-	69, 72, 69, 70, 71, 69, 7, 73, 
-	73, 3, 9, 73, 73, 73, 73, 73, 
-	73, 73, 73, 74, 12, 13, 14, 15, 
-	16, 17, 18, 12, 19, 21, 21, 22, 
-	23, 24, 73, 25, 26, 27, 73, 7, 
-	73, 73, 3, 9, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 12, 13, 14, 
-	15, 16, 17, 18, 12, 19, 21, 21, 
-	22, 23, 24, 73, 25, 26, 27, 73, 
-	7, 73, 73, 73, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 12, 13, 
-	14, 15, 16, 73, 73, 73, 73, 73, 
-	73, 22, 23, 24, 73, 25, 26, 27, 
-	73, 7, 73, 73, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 73, 73, 
-	13, 14, 15, 16, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 25, 26, 
-	27, 73, 7, 73, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 73, 73, 
-	73, 73, 14, 15, 16, 73, 7, 73, 
-	73, 73, 73, 73, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 73, 15, 
-	16, 73, 7, 73, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 73, 73, 
-	73, 73, 73, 73, 16, 73, 7, 73, 
-	73, 73, 73, 73, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 14, 15, 
-	16, 73, 73, 73, 73, 73, 73, 73, 
-	73, 73, 73, 25, 26, 27, 73, 7, 
-	73, 73, 73, 73, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 73, 14, 
-	15, 16, 73, 73, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 26, 27, 73, 
-	7, 73, 73, 73, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 73, 73, 
-	14, 15, 16, 73, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 73, 27, 
-	73, 7, 73, 73, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 73, 73, 
-	13, 14, 15, 16, 73, 73, 73, 73, 
-	73, 73, 22, 23, 24, 73, 25, 26, 
-	27, 73, 7, 73, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 73, 73, 
-	73, 13, 14, 15, 16, 73, 73, 73, 
-	73, 73, 73, 73, 23, 24, 73, 25, 
-	26, 27, 73, 7, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 73, 73, 
-	73, 73, 13, 14, 15, 16, 73, 73, 
-	73, 73, 73, 73, 73, 73, 24, 73, 
-	25, 26, 27, 73, 7, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 73, 73, 
-	73, 73, 12, 13, 14, 15, 16, 73, 
-	18, 12, 73, 73, 73, 22, 23, 24, 
-	73, 25, 26, 27, 73, 7, 73, 73, 
-	73, 73, 73, 73, 73, 73, 73, 73, 
-	73, 73, 73, 12, 13, 14, 15, 16, 
-	73, 73, 12, 73, 73, 73, 22, 23, 
-	24, 73, 25, 26, 27, 73, 7, 73, 
-	73, 73, 73, 73, 73, 73, 73, 73, 
-	73, 73, 73, 73, 12, 13, 14, 15, 
-	16, 17, 18, 12, 73, 73, 73, 22, 
-	23, 24, 73, 25, 26, 27, 73, 7, 
-	73, 73, 3, 9, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 12, 13, 14, 
-	15, 16, 17, 18, 12, 19, 73, 21, 
-	22, 23, 24, 73, 25, 26, 27, 73, 
-	5, 6, 73, 73, 5, 73, 73, 7, 
-	73, 73, 3, 9, 73, 73, 73, 73, 
-	73, 73, 73, 73, 73, 12, 13, 14, 
-	15, 16, 17, 18, 12, 19, 20, 21, 
-	22, 23, 24, 73, 25, 26, 27, 73, 
-	7, 73, 73, 3, 9, 73, 73, 73, 
-	73, 73, 73, 73, 73, 73, 12, 13, 
-	14, 15, 16, 17, 18, 12, 19, 20, 
-	21, 22, 23, 24, 73, 25, 26, 27, 
-	73, 76, 75, 75, 75, 75, 75, 75, 
-	75, 75, 75, 75, 75, 75, 75, 75, 
-	75, 75, 75, 75, 75, 76, 77, 75, 
-	76, 77, 75, 77, 75, 0
-};
-
-static const char _use_syllable_machine_trans_targs[] = {
-	3, 41, 3, 43, 4, 5, 25, 3, 
-	0, 2, 60, 62, 45, 46, 47, 48, 
-	49, 56, 57, 58, 61, 59, 53, 54, 
-	55, 50, 51, 52, 3, 3, 3, 3, 
-	6, 7, 24, 9, 10, 11, 12, 13, 
-	20, 21, 22, 23, 17, 18, 19, 14, 
-	15, 16, 8, 3, 3, 3, 26, 27, 
-	40, 29, 30, 31, 32, 36, 37, 38, 
-	39, 33, 34, 35, 28, 3, 3, 1, 
-	42, 3, 44, 3, 63, 64
-};
-
-static const char _use_syllable_machine_trans_actions[] = {
-	1, 2, 3, 4, 0, 0, 0, 7, 
-	0, 0, 4, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 4, 4, 0, 0, 
-	0, 0, 0, 0, 8, 9, 10, 11, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 12, 13, 14, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 15, 16, 0, 
-	2, 17, 4, 18, 0, 0
-};
-
-static const char _use_syllable_machine_to_state_actions[] = {
-	0, 0, 0, 5, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0
-};
-
-static const char _use_syllable_machine_from_state_actions[] = {
-	0, 0, 0, 6, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 0, 0, 0, 
-	0
-};
-
-static const short _use_syllable_machine_eof_trans[] = {
-	0, 1, 3, 0, 29, 31, 31, 52, 
-	31, 31, 31, 31, 31, 31, 31, 31, 
-	31, 31, 31, 31, 31, 31, 31, 31, 
-	31, 53, 53, 52, 53, 53, 53, 53, 
-	53, 53, 53, 53, 53, 53, 53, 53, 
-	53, 70, 70, 74, 74, 74, 74, 74, 
-	74, 74, 74, 74, 74, 74, 74, 74, 
-	74, 74, 74, 74, 74, 74, 76, 76, 
-	76
-};
-
-static const int use_syllable_machine_start = 3;
-static const int use_syllable_machine_first_final = 3;
-static const int use_syllable_machine_error = 0;
-
-static const int use_syllable_machine_en_main = 3;
+static const int use_syllable_machine_en_main = 1;
 
 
-#line 38 "hb-ot-shape-complex-use-machine.rl"
+#line 38 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
 
 
 
-#line 145 "hb-ot-shape-complex-use-machine.rl"
+#line 139 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
 
 
 #define found_syllable(syllable_type) \
@@ -384,7 +66,7 @@ find_syllables (hb_buffer_t *buffer)
   int cs;
   hb_glyph_info_t *info = buffer->info;
   
-#line 388 "hb-ot-shape-complex-use-machine.hh"
+#line 70 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.hh"
 	{
 	cs = use_syllable_machine_start;
 	ts = 0;
@@ -392,7 +74,7 @@ find_syllables (hb_buffer_t *buffer)
 	act = 0;
 	}
 
-#line 166 "hb-ot-shape-complex-use-machine.rl"
+#line 160 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
 
 
   p = 0;
@@ -401,145 +83,1074 @@ find_syllables (hb_buffer_t *buffer)
   unsigned int last = 0;
   unsigned int syllable_serial = 1;
   
-#line 405 "hb-ot-shape-complex-use-machine.hh"
+#line 87 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.hh"
 	{
-	int _slen;
-	int _trans;
-	const unsigned char *_keys;
-	const char *_inds;
 	if ( p == pe )
 		goto _test_eof;
-	if ( cs == 0 )
-		goto _out;
-_resume:
-	switch ( _use_syllable_machine_from_state_actions[cs] ) {
-	case 6:
-#line 1 "NONE"
-	{ts = p;}
-	break;
-#line 421 "hb-ot-shape-complex-use-machine.hh"
-	}
-
-	_keys = _use_syllable_machine_trans_keys + (cs<<1);
-	_inds = _use_syllable_machine_indicies + _use_syllable_machine_index_offsets[cs];
-
-	_slen = _use_syllable_machine_key_spans[cs];
-	_trans = _inds[ _slen > 0 && _keys[0] <=( info[p].use_category()) &&
-		( info[p].use_category()) <= _keys[1] ?
-		( info[p].use_category()) - _keys[0] : _slen ];
-
-_eof_trans:
-	cs = _use_syllable_machine_trans_targs[_trans];
-
-	if ( _use_syllable_machine_trans_actions[_trans] == 0 )
-		goto _again;
-
-	switch ( _use_syllable_machine_trans_actions[_trans] ) {
-	case 2:
-#line 1 "NONE"
-	{te = p+1;}
-	break;
-	case 9:
-#line 134 "hb-ot-shape-complex-use-machine.rl"
-	{te = p+1;{ found_syllable (independent_cluster); }}
-	break;
-	case 11:
-#line 136 "hb-ot-shape-complex-use-machine.rl"
-	{te = p+1;{ found_syllable (consonant_cluster); }}
-	break;
-	case 14:
-#line 137 "hb-ot-shape-complex-use-machine.rl"
-	{te = p+1;{ found_syllable (vowel_cluster); }}
-	break;
-	case 16:
-#line 138 "hb-ot-shape-complex-use-machine.rl"
-	{te = p+1;{ found_syllable (number_joiner_terminated_cluster); }}
-	break;
-	case 7:
-#line 141 "hb-ot-shape-complex-use-machine.rl"
+	switch ( cs )
+	{
+tr0:
+#line 134 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
+	{{p = ((te))-1;}{ found_syllable (broken_cluster); }}
+	goto st1;
+tr4:
+#line 135 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
+	{te = p+1;{ found_syllable (non_cluster); }}
+	goto st1;
+tr6:
+#line 134 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
 	{te = p+1;{ found_syllable (broken_cluster); }}
-	break;
-	case 8:
-#line 134 "hb-ot-shape-complex-use-machine.rl"
+	goto st1;
+tr26:
+#line 128 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
 	{te = p;p--;{ found_syllable (independent_cluster); }}
-	break;
-	case 12:
-#line 135 "hb-ot-shape-complex-use-machine.rl"
+	goto st1;
+tr27:
+#line 128 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
+	{te = p+1;{ found_syllable (independent_cluster); }}
+	goto st1;
+tr28:
+#line 130 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
+	{te = p;p--;{ found_syllable (standard_cluster); }}
+	goto st1;
+tr29:
+#line 130 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
+	{te = p+1;{ found_syllable (standard_cluster); }}
+	goto st1;
+tr49:
+#line 129 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
 	{te = p;p--;{ found_syllable (virama_terminated_cluster); }}
-	break;
-	case 10:
-#line 136 "hb-ot-shape-complex-use-machine.rl"
-	{te = p;p--;{ found_syllable (consonant_cluster); }}
-	break;
-	case 13:
-#line 137 "hb-ot-shape-complex-use-machine.rl"
-	{te = p;p--;{ found_syllable (vowel_cluster); }}
-	break;
-	case 15:
-#line 139 "hb-ot-shape-complex-use-machine.rl"
+	goto st1;
+tr51:
+#line 132 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
 	{te = p;p--;{ found_syllable (numeral_cluster); }}
-	break;
-	case 18:
-#line 140 "hb-ot-shape-complex-use-machine.rl"
-	{te = p;p--;{ found_syllable (symbol_cluster); }}
-	break;
-	case 17:
-#line 141 "hb-ot-shape-complex-use-machine.rl"
+	goto st1;
+tr54:
+#line 131 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
+	{te = p;p--;{ found_syllable (number_joiner_terminated_cluster); }}
+	goto st1;
+tr55:
+#line 134 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
 	{te = p;p--;{ found_syllable (broken_cluster); }}
-	break;
-	case 1:
-#line 139 "hb-ot-shape-complex-use-machine.rl"
-	{{p = ((te))-1;}{ found_syllable (numeral_cluster); }}
-	break;
-	case 3:
-#line 1 "NONE"
-	{	switch( act ) {
-	case 0:
-	{{cs = 0; goto _again;}}
-	break;
-	case 8:
-	{{p = ((te))-1;} found_syllable (broken_cluster); }
-	break;
-	}
-	}
-	break;
-	case 4:
-#line 1 "NONE"
-	{te = p+1;}
-#line 141 "hb-ot-shape-complex-use-machine.rl"
-	{act = 8;}
-	break;
-#line 513 "hb-ot-shape-complex-use-machine.hh"
-	}
-
-_again:
-	switch ( _use_syllable_machine_to_state_actions[cs] ) {
-	case 5:
+	goto st1;
+tr59:
+#line 135 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
+	{te = p;p--;{ found_syllable (non_cluster); }}
+	goto st1;
+tr60:
+#line 133 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
+	{te = p;p--;{ found_syllable (symbol_cluster); }}
+	goto st1;
+st1:
 #line 1 "NONE"
 	{ts = 0;}
+	if ( ++p == pe )
+		goto _test_eof1;
+case 1:
 #line 1 "NONE"
-	{act = 0;}
-	break;
-#line 524 "hb-ot-shape-complex-use-machine.hh"
+	{ts = p;}
+#line 153 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.hh"
+	switch( ( info[p].use_category()) ) {
+		case 0u: goto st2;
+		case 1u: goto st3;
+		case 3u: goto st2;
+		case 4u: goto st24;
+		case 5u: goto st3;
+		case 8u: goto tr6;
+		case 11u: goto tr1;
+		case 12u: goto st45;
+		case 18u: goto tr8;
+		case 19u: goto st48;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 27u: goto st40;
+		case 28u: goto st41;
+		case 30u: goto st43;
+		case 31u: goto tr18;
+		case 32u: goto tr19;
+		case 33u: goto st37;
+		case 34u: goto st38;
+		case 35u: goto st39;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
 	}
+	if ( ( info[p].use_category()) > 17u ) {
+		if ( 22u <= ( info[p].use_category()) && ( info[p].use_category()) <= 29u )
+			goto st29;
+	} else if ( ( info[p].use_category()) >= 16u )
+		goto st2;
+	goto tr4;
+st2:
+	if ( ++p == pe )
+		goto _test_eof2;
+case 2:
+	if ( ( info[p].use_category()) == 21u )
+		goto tr27;
+	goto tr26;
+st3:
+	if ( ++p == pe )
+		goto _test_eof3;
+case 3:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 11u: goto st4;
+		case 12u: goto st5;
+		case 22u: goto st7;
+		case 23u: goto st8;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 27u: goto st18;
+		case 28u: goto st19;
+		case 29u: goto st7;
+		case 30u: goto st21;
+		case 32u: goto st22;
+		case 33u: goto st15;
+		case 34u: goto st16;
+		case 35u: goto st17;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	if ( 21u <= ( info[p].use_category()) && ( info[p].use_category()) <= 31u )
+		goto st23;
+	goto tr28;
+st4:
+	if ( ++p == pe )
+		goto _test_eof4;
+case 4:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 11u: goto st4;
+		case 12u: goto st5;
+		case 21u: goto st6;
+		case 23u: goto st8;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 27u: goto st18;
+		case 28u: goto st19;
+		case 30u: goto st21;
+		case 33u: goto st15;
+		case 34u: goto st16;
+		case 35u: goto st17;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	if ( ( info[p].use_category()) > 29u ) {
+		if ( 31u <= ( info[p].use_category()) && ( info[p].use_category()) <= 32u )
+			goto st22;
+	} else if ( ( info[p].use_category()) >= 22u )
+		goto st7;
+	goto tr28;
+st5:
+	if ( ++p == pe )
+		goto _test_eof5;
+case 5:
+	if ( ( info[p].use_category()) == 1u )
+		goto st4;
+	goto tr49;
+st6:
+	if ( ++p == pe )
+		goto _test_eof6;
+case 6:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 11u: goto st4;
+		case 12u: goto st5;
+		case 23u: goto st8;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 27u: goto st18;
+		case 28u: goto st19;
+		case 30u: goto st21;
+		case 33u: goto st15;
+		case 34u: goto st16;
+		case 35u: goto st17;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	if ( ( info[p].use_category()) > 29u ) {
+		if ( 31u <= ( info[p].use_category()) && ( info[p].use_category()) <= 32u )
+			goto st22;
+	} else if ( ( info[p].use_category()) >= 22u )
+		goto st7;
+	goto tr28;
+st7:
+	if ( ++p == pe )
+		goto _test_eof7;
+case 7:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 22u: goto st7;
+		case 23u: goto st8;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 33u: goto st15;
+		case 34u: goto st16;
+		case 35u: goto st17;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	goto tr28;
+st8:
+	if ( ++p == pe )
+		goto _test_eof8;
+case 8:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 23u: goto st8;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	goto tr28;
+st9:
+	if ( ++p == pe )
+		goto _test_eof9;
+case 9:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+	}
+	goto tr28;
+st10:
+	if ( ++p == pe )
+		goto _test_eof10;
+case 10:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 25u: goto st10;
+		case 26u: goto st11;
+	}
+	goto tr28;
+st11:
+	if ( ++p == pe )
+		goto _test_eof11;
+case 11:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 26u: goto st11;
+	}
+	goto tr28;
+st12:
+	if ( ++p == pe )
+		goto _test_eof12;
+case 12:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	goto tr28;
+st13:
+	if ( ++p == pe )
+		goto _test_eof13;
+case 13:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	goto tr28;
+st14:
+	if ( ++p == pe )
+		goto _test_eof14;
+case 14:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 39u: goto st14;
+	}
+	goto tr28;
+st15:
+	if ( ++p == pe )
+		goto _test_eof15;
+case 15:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 23u: goto st8;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 33u: goto st15;
+		case 34u: goto st16;
+		case 35u: goto st17;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	goto tr28;
+st16:
+	if ( ++p == pe )
+		goto _test_eof16;
+case 16:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 23u: goto st8;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 34u: goto st16;
+		case 35u: goto st17;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	goto tr28;
+st17:
+	if ( ++p == pe )
+		goto _test_eof17;
+case 17:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 23u: goto st8;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 35u: goto st17;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	goto tr28;
+st18:
+	if ( ++p == pe )
+		goto _test_eof18;
+case 18:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 22u: goto st7;
+		case 23u: goto st8;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 28u: goto st19;
+		case 29u: goto st7;
+		case 33u: goto st15;
+		case 34u: goto st16;
+		case 35u: goto st17;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	goto tr28;
+st19:
+	if ( ++p == pe )
+		goto _test_eof19;
+case 19:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 22u: goto st7;
+		case 23u: goto st8;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 28u: goto st20;
+		case 29u: goto st7;
+		case 33u: goto st15;
+		case 34u: goto st16;
+		case 35u: goto st17;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	goto tr28;
+st20:
+	if ( ++p == pe )
+		goto _test_eof20;
+case 20:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 22u: goto st7;
+		case 23u: goto st8;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 29u: goto st7;
+		case 33u: goto st15;
+		case 34u: goto st16;
+		case 35u: goto st17;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	goto tr28;
+st21:
+	if ( ++p == pe )
+		goto _test_eof21;
+case 21:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 23u: goto st8;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 27u: goto st18;
+		case 28u: goto st19;
+		case 33u: goto st15;
+		case 34u: goto st16;
+		case 35u: goto st17;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	if ( 22u <= ( info[p].use_category()) && ( info[p].use_category()) <= 29u )
+		goto st7;
+	goto tr28;
+st22:
+	if ( ++p == pe )
+		goto _test_eof22;
+case 22:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 11u: goto st4;
+		case 12u: goto st5;
+		case 23u: goto st8;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 27u: goto st18;
+		case 28u: goto st19;
+		case 30u: goto st21;
+		case 32u: goto st22;
+		case 33u: goto st15;
+		case 34u: goto st16;
+		case 35u: goto st17;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	if ( 22u <= ( info[p].use_category()) && ( info[p].use_category()) <= 29u )
+		goto st7;
+	goto tr28;
+st23:
+	if ( ++p == pe )
+		goto _test_eof23;
+case 23:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr29;
+		case 11u: goto st4;
+		case 12u: goto st5;
+		case 23u: goto st8;
+		case 24u: goto st9;
+		case 25u: goto st10;
+		case 26u: goto st11;
+		case 27u: goto st18;
+		case 28u: goto st19;
+		case 30u: goto st21;
+		case 31u: goto st23;
+		case 32u: goto st22;
+		case 33u: goto st15;
+		case 34u: goto st16;
+		case 35u: goto st17;
+		case 37u: goto st12;
+		case 38u: goto st13;
+		case 39u: goto st14;
+	}
+	if ( 22u <= ( info[p].use_category()) && ( info[p].use_category()) <= 29u )
+		goto st7;
+	goto tr28;
+st24:
+	if ( ++p == pe )
+		goto _test_eof24;
+case 24:
+	switch( ( info[p].use_category()) ) {
+		case 13u: goto st25;
+		case 21u: goto st26;
+	}
+	goto tr51;
+st25:
+	if ( ++p == pe )
+		goto _test_eof25;
+case 25:
+	if ( ( info[p].use_category()) == 4u )
+		goto st24;
+	goto tr54;
+st26:
+	if ( ++p == pe )
+		goto _test_eof26;
+case 26:
+	if ( ( info[p].use_category()) == 13u )
+		goto st25;
+	goto tr51;
+tr1:
+#line 1 "NONE"
+	{te = p+1;}
+	goto st27;
+st27:
+	if ( ++p == pe )
+		goto _test_eof27;
+case 27:
+#line 608 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.hh"
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 11u: goto tr1;
+		case 12u: goto st0;
+		case 21u: goto tr57;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 27u: goto st40;
+		case 28u: goto st41;
+		case 30u: goto st43;
+		case 33u: goto st37;
+		case 34u: goto st38;
+		case 35u: goto st39;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	if ( ( info[p].use_category()) > 29u ) {
+		if ( 31u <= ( info[p].use_category()) && ( info[p].use_category()) <= 32u )
+			goto tr19;
+	} else if ( ( info[p].use_category()) >= 22u )
+		goto st29;
+	goto tr55;
+st0:
+	if ( ++p == pe )
+		goto _test_eof0;
+case 0:
+	if ( ( info[p].use_category()) == 1u )
+		goto tr1;
+	goto tr0;
+tr57:
+#line 1 "NONE"
+	{te = p+1;}
+	goto st28;
+st28:
+	if ( ++p == pe )
+		goto _test_eof28;
+case 28:
+#line 649 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.hh"
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 11u: goto tr1;
+		case 12u: goto st0;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 27u: goto st40;
+		case 28u: goto st41;
+		case 30u: goto st43;
+		case 33u: goto st37;
+		case 34u: goto st38;
+		case 35u: goto st39;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	if ( ( info[p].use_category()) > 29u ) {
+		if ( 31u <= ( info[p].use_category()) && ( info[p].use_category()) <= 32u )
+			goto tr19;
+	} else if ( ( info[p].use_category()) >= 22u )
+		goto st29;
+	goto tr55;
+st29:
+	if ( ++p == pe )
+		goto _test_eof29;
+case 29:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 22u: goto st29;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 33u: goto st37;
+		case 34u: goto st38;
+		case 35u: goto st39;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	goto tr55;
+st30:
+	if ( ++p == pe )
+		goto _test_eof30;
+case 30:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	goto tr55;
+st31:
+	if ( ++p == pe )
+		goto _test_eof31;
+case 31:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+	}
+	goto tr55;
+st32:
+	if ( ++p == pe )
+		goto _test_eof32;
+case 32:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 25u: goto st32;
+		case 26u: goto st33;
+	}
+	goto tr55;
+st33:
+	if ( ++p == pe )
+		goto _test_eof33;
+case 33:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 26u: goto st33;
+	}
+	goto tr55;
+st34:
+	if ( ++p == pe )
+		goto _test_eof34;
+case 34:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	goto tr55;
+st35:
+	if ( ++p == pe )
+		goto _test_eof35;
+case 35:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	goto tr55;
+st36:
+	if ( ++p == pe )
+		goto _test_eof36;
+case 36:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 39u: goto st36;
+	}
+	goto tr55;
+st37:
+	if ( ++p == pe )
+		goto _test_eof37;
+case 37:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 33u: goto st37;
+		case 34u: goto st38;
+		case 35u: goto st39;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	goto tr55;
+st38:
+	if ( ++p == pe )
+		goto _test_eof38;
+case 38:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 34u: goto st38;
+		case 35u: goto st39;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	goto tr55;
+st39:
+	if ( ++p == pe )
+		goto _test_eof39;
+case 39:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 35u: goto st39;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	goto tr55;
+st40:
+	if ( ++p == pe )
+		goto _test_eof40;
+case 40:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 22u: goto st29;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 28u: goto st41;
+		case 29u: goto st29;
+		case 33u: goto st37;
+		case 34u: goto st38;
+		case 35u: goto st39;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	goto tr55;
+st41:
+	if ( ++p == pe )
+		goto _test_eof41;
+case 41:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 22u: goto st29;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 28u: goto st42;
+		case 29u: goto st29;
+		case 33u: goto st37;
+		case 34u: goto st38;
+		case 35u: goto st39;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	goto tr55;
+st42:
+	if ( ++p == pe )
+		goto _test_eof42;
+case 42:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 22u: goto st29;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 29u: goto st29;
+		case 33u: goto st37;
+		case 34u: goto st38;
+		case 35u: goto st39;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	goto tr55;
+st43:
+	if ( ++p == pe )
+		goto _test_eof43;
+case 43:
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 27u: goto st40;
+		case 28u: goto st41;
+		case 33u: goto st37;
+		case 34u: goto st38;
+		case 35u: goto st39;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	if ( 22u <= ( info[p].use_category()) && ( info[p].use_category()) <= 29u )
+		goto st29;
+	goto tr55;
+tr19:
+#line 1 "NONE"
+	{te = p+1;}
+	goto st44;
+st44:
+	if ( ++p == pe )
+		goto _test_eof44;
+case 44:
+#line 920 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.hh"
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 11u: goto tr1;
+		case 12u: goto st0;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 27u: goto st40;
+		case 28u: goto st41;
+		case 30u: goto st43;
+		case 32u: goto tr19;
+		case 33u: goto st37;
+		case 34u: goto st38;
+		case 35u: goto st39;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	if ( 22u <= ( info[p].use_category()) && ( info[p].use_category()) <= 29u )
+		goto st29;
+	goto tr55;
+st45:
+	if ( ++p == pe )
+		goto _test_eof45;
+case 45:
+	if ( ( info[p].use_category()) == 1u )
+		goto tr1;
+	goto tr59;
+tr8:
+#line 1 "NONE"
+	{te = p+1;}
+	goto st46;
+st46:
+	if ( ++p == pe )
+		goto _test_eof46;
+case 46:
+#line 958 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.hh"
+	switch( ( info[p].use_category()) ) {
+		case 1u: goto st3;
+		case 5u: goto st3;
+		case 8u: goto tr6;
+		case 11u: goto tr1;
+		case 12u: goto st0;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 27u: goto st40;
+		case 28u: goto st41;
+		case 30u: goto st43;
+		case 31u: goto tr18;
+		case 32u: goto tr19;
+		case 33u: goto st37;
+		case 34u: goto st38;
+		case 35u: goto st39;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	if ( 22u <= ( info[p].use_category()) && ( info[p].use_category()) <= 29u )
+		goto st29;
+	goto tr55;
+tr18:
+#line 1 "NONE"
+	{te = p+1;}
+	goto st47;
+st47:
+	if ( ++p == pe )
+		goto _test_eof47;
+case 47:
+#line 992 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.hh"
+	switch( ( info[p].use_category()) ) {
+		case 8u: goto tr6;
+		case 11u: goto tr1;
+		case 12u: goto st0;
+		case 23u: goto st30;
+		case 24u: goto st31;
+		case 25u: goto st32;
+		case 26u: goto st33;
+		case 27u: goto st40;
+		case 28u: goto st41;
+		case 30u: goto st43;
+		case 31u: goto tr18;
+		case 32u: goto tr19;
+		case 33u: goto st37;
+		case 34u: goto st38;
+		case 35u: goto st39;
+		case 37u: goto st34;
+		case 38u: goto st35;
+		case 39u: goto st36;
+	}
+	if ( 22u <= ( info[p].use_category()) && ( info[p].use_category()) <= 29u )
+		goto st29;
+	goto tr55;
+st48:
+	if ( ++p == pe )
+		goto _test_eof48;
+case 48:
+	switch( ( info[p].use_category()) ) {
+		case 21u: goto st49;
+		case 41u: goto st49;
+		case 42u: goto st50;
+	}
+	goto tr60;
+st49:
+	if ( ++p == pe )
+		goto _test_eof49;
+case 49:
+	switch( ( info[p].use_category()) ) {
+		case 41u: goto st49;
+		case 42u: goto st50;
+	}
+	goto tr60;
+st50:
+	if ( ++p == pe )
+		goto _test_eof50;
+case 50:
+	if ( ( info[p].use_category()) == 42u )
+		goto st50;
+	goto tr60;
+	}
+	_test_eof1: cs = 1; goto _test_eof; 
+	_test_eof2: cs = 2; goto _test_eof; 
+	_test_eof3: cs = 3; goto _test_eof; 
+	_test_eof4: cs = 4; goto _test_eof; 
+	_test_eof5: cs = 5; goto _test_eof; 
+	_test_eof6: cs = 6; goto _test_eof; 
+	_test_eof7: cs = 7; goto _test_eof; 
+	_test_eof8: cs = 8; goto _test_eof; 
+	_test_eof9: cs = 9; goto _test_eof; 
+	_test_eof10: cs = 10; goto _test_eof; 
+	_test_eof11: cs = 11; goto _test_eof; 
+	_test_eof12: cs = 12; goto _test_eof; 
+	_test_eof13: cs = 13; goto _test_eof; 
+	_test_eof14: cs = 14; goto _test_eof; 
+	_test_eof15: cs = 15; goto _test_eof; 
+	_test_eof16: cs = 16; goto _test_eof; 
+	_test_eof17: cs = 17; goto _test_eof; 
+	_test_eof18: cs = 18; goto _test_eof; 
+	_test_eof19: cs = 19; goto _test_eof; 
+	_test_eof20: cs = 20; goto _test_eof; 
+	_test_eof21: cs = 21; goto _test_eof; 
+	_test_eof22: cs = 22; goto _test_eof; 
+	_test_eof23: cs = 23; goto _test_eof; 
+	_test_eof24: cs = 24; goto _test_eof; 
+	_test_eof25: cs = 25; goto _test_eof; 
+	_test_eof26: cs = 26; goto _test_eof; 
+	_test_eof27: cs = 27; goto _test_eof; 
+	_test_eof0: cs = 0; goto _test_eof; 
+	_test_eof28: cs = 28; goto _test_eof; 
+	_test_eof29: cs = 29; goto _test_eof; 
+	_test_eof30: cs = 30; goto _test_eof; 
+	_test_eof31: cs = 31; goto _test_eof; 
+	_test_eof32: cs = 32; goto _test_eof; 
+	_test_eof33: cs = 33; goto _test_eof; 
+	_test_eof34: cs = 34; goto _test_eof; 
+	_test_eof35: cs = 35; goto _test_eof; 
+	_test_eof36: cs = 36; goto _test_eof; 
+	_test_eof37: cs = 37; goto _test_eof; 
+	_test_eof38: cs = 38; goto _test_eof; 
+	_test_eof39: cs = 39; goto _test_eof; 
+	_test_eof40: cs = 40; goto _test_eof; 
+	_test_eof41: cs = 41; goto _test_eof; 
+	_test_eof42: cs = 42; goto _test_eof; 
+	_test_eof43: cs = 43; goto _test_eof; 
+	_test_eof44: cs = 44; goto _test_eof; 
+	_test_eof45: cs = 45; goto _test_eof; 
+	_test_eof46: cs = 46; goto _test_eof; 
+	_test_eof47: cs = 47; goto _test_eof; 
+	_test_eof48: cs = 48; goto _test_eof; 
+	_test_eof49: cs = 49; goto _test_eof; 
+	_test_eof50: cs = 50; goto _test_eof; 
 
-	if ( cs == 0 )
-		goto _out;
-	if ( ++p != pe )
-		goto _resume;
 	_test_eof: {}
 	if ( p == eof )
 	{
-	if ( _use_syllable_machine_eof_trans[cs] > 0 ) {
-		_trans = _use_syllable_machine_eof_trans[cs] - 1;
-		goto _eof_trans;
+	switch ( cs ) {
+	case 2: goto tr26;
+	case 3: goto tr28;
+	case 4: goto tr28;
+	case 5: goto tr49;
+	case 6: goto tr28;
+	case 7: goto tr28;
+	case 8: goto tr28;
+	case 9: goto tr28;
+	case 10: goto tr28;
+	case 11: goto tr28;
+	case 12: goto tr28;
+	case 13: goto tr28;
+	case 14: goto tr28;
+	case 15: goto tr28;
+	case 16: goto tr28;
+	case 17: goto tr28;
+	case 18: goto tr28;
+	case 19: goto tr28;
+	case 20: goto tr28;
+	case 21: goto tr28;
+	case 22: goto tr28;
+	case 23: goto tr28;
+	case 24: goto tr51;
+	case 25: goto tr54;
+	case 26: goto tr51;
+	case 27: goto tr55;
+	case 0: goto tr0;
+	case 28: goto tr55;
+	case 29: goto tr55;
+	case 30: goto tr55;
+	case 31: goto tr55;
+	case 32: goto tr55;
+	case 33: goto tr55;
+	case 34: goto tr55;
+	case 35: goto tr55;
+	case 36: goto tr55;
+	case 37: goto tr55;
+	case 38: goto tr55;
+	case 39: goto tr55;
+	case 40: goto tr55;
+	case 41: goto tr55;
+	case 42: goto tr55;
+	case 43: goto tr55;
+	case 44: goto tr55;
+	case 45: goto tr59;
+	case 46: goto tr55;
+	case 47: goto tr55;
+	case 48: goto tr60;
+	case 49: goto tr60;
+	case 50: goto tr60;
 	}
 	}
 
-	_out: {}
 	}
 
-#line 175 "hb-ot-shape-complex-use-machine.rl"
+#line 169 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-ot-shape-complex-use-machine.rl"
 
 }
 

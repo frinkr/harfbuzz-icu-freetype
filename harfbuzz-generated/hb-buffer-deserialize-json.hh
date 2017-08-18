@@ -1,5 +1,5 @@
 
-#line 1 "hb-buffer-deserialize-json.rl"
+#line 1 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
 /*
  * Copyright © 2013  Google, Inc.
  *
@@ -32,402 +32,7 @@
 #include "hb-private.hh"
 
 
-#line 36 "hb-buffer-deserialize-json.hh"
-static const unsigned char _deserialize_json_trans_keys[] = {
-	0u, 0u, 9u, 123u, 9u, 34u, 97u, 103u, 120u, 121u, 34u, 34u, 9u, 58u, 9u, 57u, 
-	48u, 57u, 9u, 125u, 9u, 125u, 9u, 125u, 34u, 34u, 9u, 58u, 9u, 57u, 48u, 57u, 
-	9u, 125u, 9u, 125u, 108u, 108u, 34u, 34u, 9u, 58u, 9u, 57u, 9u, 125u, 9u, 125u, 
-	120u, 121u, 34u, 34u, 9u, 58u, 9u, 57u, 48u, 57u, 9u, 125u, 9u, 125u, 34u, 34u, 
-	9u, 58u, 9u, 57u, 48u, 57u, 9u, 125u, 9u, 125u, 34u, 34u, 9u, 58u, 9u, 57u, 
-	65u, 122u, 34u, 122u, 9u, 125u, 9u, 125u, 9u, 93u, 9u, 123u, 0u, 0u, 0
-};
-
-static const char _deserialize_json_key_spans[] = {
-	0, 115, 26, 7, 2, 1, 50, 49, 
-	10, 117, 117, 117, 1, 50, 49, 10, 
-	117, 117, 1, 1, 50, 49, 117, 117, 
-	2, 1, 50, 49, 10, 117, 117, 1, 
-	50, 49, 10, 117, 117, 1, 50, 49, 
-	58, 89, 117, 117, 85, 115, 0
-};
-
-static const short _deserialize_json_index_offsets[] = {
-	0, 0, 116, 143, 151, 154, 156, 207, 
-	257, 268, 386, 504, 622, 624, 675, 725, 
-	736, 854, 972, 974, 976, 1027, 1077, 1195, 
-	1313, 1316, 1318, 1369, 1419, 1430, 1548, 1666, 
-	1668, 1719, 1769, 1780, 1898, 2016, 2018, 2069, 
-	2119, 2178, 2268, 2386, 2504, 2590, 2706
-};
-
-static const char _deserialize_json_indicies[] = {
-	0, 0, 0, 0, 0, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	0, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 2, 1, 3, 3, 3, 
-	3, 3, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 3, 1, 4, 1, 
-	5, 1, 6, 7, 1, 1, 8, 1, 
-	9, 10, 1, 11, 1, 11, 11, 11, 
-	11, 11, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 11, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 12, 1, 
-	12, 12, 12, 12, 12, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 12, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 13, 1, 1, 14, 
-	15, 15, 15, 15, 15, 15, 15, 15, 
-	15, 1, 16, 17, 17, 17, 17, 17, 
-	17, 17, 17, 17, 1, 18, 18, 18, 
-	18, 18, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 18, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	19, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 20, 1, 21, 21, 21, 21, 21, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 21, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 3, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 22, 
-	1, 18, 18, 18, 18, 18, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	18, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 19, 1, 1, 1, 
-	17, 17, 17, 17, 17, 17, 17, 17, 
-	17, 17, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 20, 1, 23, 
-	1, 23, 23, 23, 23, 23, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	23, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 24, 1, 24, 24, 24, 24, 
-	24, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 24, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	25, 1, 1, 26, 27, 27, 27, 27, 
-	27, 27, 27, 27, 27, 1, 28, 29, 
-	29, 29, 29, 29, 29, 29, 29, 29, 
-	1, 30, 30, 30, 30, 30, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	30, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 31, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 32, 1, 30, 
-	30, 30, 30, 30, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 30, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 31, 1, 1, 1, 29, 29, 
-	29, 29, 29, 29, 29, 29, 29, 29, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 32, 1, 33, 1, 34, 
-	1, 34, 34, 34, 34, 34, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	34, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 35, 1, 35, 35, 35, 35, 
-	35, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 35, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 36, 37, 37, 37, 37, 
-	37, 37, 37, 37, 37, 1, 38, 38, 
-	38, 38, 38, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 38, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 39, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 40, 1, 38, 38, 38, 38, 
-	38, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 38, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 39, 
-	1, 1, 1, 41, 41, 41, 41, 41, 
-	41, 41, 41, 41, 41, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	40, 1, 42, 43, 1, 44, 1, 44, 
-	44, 44, 44, 44, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 44, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	45, 1, 45, 45, 45, 45, 45, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 45, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 46, 1, 
-	1, 47, 48, 48, 48, 48, 48, 48, 
-	48, 48, 48, 1, 49, 50, 50, 50, 
-	50, 50, 50, 50, 50, 50, 1, 51, 
-	51, 51, 51, 51, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 51, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 52, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 53, 1, 51, 51, 51, 
-	51, 51, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 51, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	52, 1, 1, 1, 50, 50, 50, 50, 
-	50, 50, 50, 50, 50, 50, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 53, 1, 54, 1, 54, 54, 54, 
-	54, 54, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 54, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 55, 1, 
-	55, 55, 55, 55, 55, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 55, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 56, 1, 1, 57, 
-	58, 58, 58, 58, 58, 58, 58, 58, 
-	58, 1, 59, 60, 60, 60, 60, 60, 
-	60, 60, 60, 60, 1, 61, 61, 61, 
-	61, 61, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 61, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	62, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 63, 1, 61, 61, 61, 61, 61, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 61, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 62, 1, 
-	1, 1, 60, 60, 60, 60, 60, 60, 
-	60, 60, 60, 60, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 63, 
-	1, 64, 1, 64, 64, 64, 64, 64, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 64, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 65, 1, 65, 65, 
-	65, 65, 65, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 65, 1, 66, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 67, 68, 68, 
-	68, 68, 68, 68, 68, 68, 68, 1, 
-	69, 69, 69, 69, 69, 69, 69, 69, 
-	69, 69, 69, 69, 69, 69, 69, 69, 
-	69, 69, 69, 69, 69, 69, 69, 69, 
-	69, 69, 1, 1, 1, 1, 1, 1, 
-	69, 69, 69, 69, 69, 69, 69, 69, 
-	69, 69, 69, 69, 69, 69, 69, 69, 
-	69, 69, 69, 69, 69, 69, 69, 69, 
-	69, 69, 1, 70, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 71, 71, 
-	1, 71, 71, 71, 71, 71, 71, 71, 
-	71, 71, 71, 1, 1, 1, 1, 1, 
-	1, 1, 71, 71, 71, 71, 71, 71, 
-	71, 71, 71, 71, 71, 71, 71, 71, 
-	71, 71, 71, 71, 71, 71, 71, 71, 
-	71, 71, 71, 71, 1, 1, 1, 1, 
-	71, 1, 71, 71, 71, 71, 71, 71, 
-	71, 71, 71, 71, 71, 71, 71, 71, 
-	71, 71, 71, 71, 71, 71, 71, 71, 
-	71, 71, 71, 71, 1, 72, 72, 72, 
-	72, 72, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 72, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	73, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 74, 1, 72, 72, 72, 72, 72, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 72, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 73, 1, 
-	1, 1, 75, 75, 75, 75, 75, 75, 
-	75, 75, 75, 75, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 74, 
-	1, 76, 76, 76, 76, 76, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	76, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 77, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 78, 1, 0, 
-	0, 0, 0, 0, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 0, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 1, 1, 1, 1, 1, 1, 1, 
-	1, 2, 1, 1, 0
-};
-
-static const char _deserialize_json_trans_targs[] = {
-	1, 0, 2, 2, 3, 4, 18, 24, 
-	37, 5, 12, 6, 7, 8, 9, 11, 
-	9, 11, 10, 2, 44, 10, 44, 13, 
-	14, 15, 16, 17, 16, 17, 10, 2, 
-	44, 19, 20, 21, 22, 23, 10, 2, 
-	44, 23, 25, 31, 26, 27, 28, 29, 
-	30, 29, 30, 10, 2, 44, 32, 33, 
-	34, 35, 36, 35, 36, 10, 2, 44, 
-	38, 39, 40, 42, 43, 41, 10, 41, 
-	10, 2, 44, 43, 44, 45, 46
-};
-
-static const char _deserialize_json_trans_actions[] = {
-	0, 0, 1, 0, 0, 0, 0, 0, 
-	0, 0, 0, 0, 0, 2, 2, 2, 
-	0, 0, 3, 3, 4, 0, 5, 0, 
-	0, 2, 2, 2, 0, 0, 6, 6, 
-	7, 0, 0, 0, 2, 2, 8, 8, 
-	9, 0, 0, 0, 0, 0, 2, 2, 
-	2, 0, 0, 10, 10, 11, 0, 0, 
-	2, 2, 2, 0, 0, 12, 12, 13, 
-	0, 0, 0, 2, 2, 2, 14, 0, 
-	15, 15, 16, 0, 0, 0, 0
-};
-
+#line 36 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
 static const int deserialize_json_start = 1;
 static const int deserialize_json_first_final = 44;
 static const int deserialize_json_error = 0;
@@ -435,7 +40,7 @@ static const int deserialize_json_error = 0;
 static const int deserialize_json_en_main = 1;
 
 
-#line 97 "hb-buffer-deserialize-json.rl"
+#line 97 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
 
 
 static hb_bool_t
@@ -462,177 +67,864 @@ _hb_buffer_deserialize_glyphs_json (hb_buffer_t *buffer,
   hb_glyph_info_t info = {0};
   hb_glyph_position_t pos = {0};
   
-#line 466 "hb-buffer-deserialize-json.hh"
+#line 71 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
 	{
 	cs = deserialize_json_start;
 	}
 
-#line 471 "hb-buffer-deserialize-json.hh"
+#line 76 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
 	{
-	int _slen;
-	int _trans;
-	const unsigned char *_keys;
-	const char *_inds;
 	if ( p == pe )
 		goto _test_eof;
-	if ( cs == 0 )
-		goto _out;
-_resume:
-	_keys = _deserialize_json_trans_keys + (cs<<1);
-	_inds = _deserialize_json_indicies + _deserialize_json_index_offsets[cs];
-
-	_slen = _deserialize_json_key_spans[cs];
-	_trans = _inds[ _slen > 0 && _keys[0] <=(*p) &&
-		(*p) <= _keys[1] ?
-		(*p) - _keys[0] : _slen ];
-
-	cs = _deserialize_json_trans_targs[_trans];
-
-	if ( _deserialize_json_trans_actions[_trans] == 0 )
-		goto _again;
-
-	switch ( _deserialize_json_trans_actions[_trans] ) {
-	case 1:
-#line 38 "hb-buffer-deserialize-json.rl"
+	switch ( cs )
+	{
+st1:
+	if ( ++p == pe )
+		goto _test_eof1;
+case 1:
+	switch( (*p) ) {
+		case 32u: goto st1;
+		case 123u: goto tr2;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto st1;
+	goto st0;
+st0:
+cs = 0;
+	goto _out;
+tr2:
+#line 38 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
 	{
 	memset (&info, 0, sizeof (info));
 	memset (&pos , 0, sizeof (pos ));
 }
-	break;
-	case 5:
-#line 43 "hb-buffer-deserialize-json.rl"
-	{
-	buffer->add_info (info);
-	if (buffer->in_error)
-	  return false;
-	buffer->pos[buffer->len - 1] = pos;
-	*end_ptr = p;
-}
-	break;
-	case 2:
-#line 51 "hb-buffer-deserialize-json.rl"
+	goto st2;
+tr19:
+#line 66 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_int  (tok, p, &pos.x_advance)) return false; }
+	goto st2;
+tr31:
+#line 67 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_int  (tok, p, &pos.y_advance)) return false; }
+	goto st2;
+tr39:
+#line 63 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_uint (tok, p, &info.cluster )) return false; }
+	goto st2;
+tr52:
+#line 64 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_int  (tok, p, &pos.x_offset )) return false; }
+	goto st2;
+tr62:
+#line 65 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_int  (tok, p, &pos.y_offset )) return false; }
+	goto st2;
+tr73:
+#line 62 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_uint (tok, p, &info.codepoint)) return false; }
+	goto st2;
+st2:
+	if ( ++p == pe )
+		goto _test_eof2;
+case 2:
+#line 131 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto st2;
+		case 34u: goto st3;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto st2;
+	goto st0;
+st3:
+	if ( ++p == pe )
+		goto _test_eof3;
+case 3:
+	switch( (*p) ) {
+		case 97u: goto st4;
+		case 99u: goto st18;
+		case 100u: goto st24;
+		case 103u: goto st37;
+	}
+	goto st0;
+st4:
+	if ( ++p == pe )
+		goto _test_eof4;
+case 4:
+	switch( (*p) ) {
+		case 120u: goto st5;
+		case 121u: goto st12;
+	}
+	goto st0;
+st5:
+	if ( ++p == pe )
+		goto _test_eof5;
+case 5:
+	if ( (*p) == 34u )
+		goto st6;
+	goto st0;
+st6:
+	if ( ++p == pe )
+		goto _test_eof6;
+case 6:
+	switch( (*p) ) {
+		case 32u: goto st6;
+		case 58u: goto st7;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto st6;
+	goto st0;
+st7:
+	if ( ++p == pe )
+		goto _test_eof7;
+case 7:
+	switch( (*p) ) {
+		case 32u: goto st7;
+		case 45u: goto tr13;
+		case 48u: goto tr14;
+	}
+	if ( (*p) > 13u ) {
+		if ( 49u <= (*p) && (*p) <= 57u )
+			goto tr15;
+	} else if ( (*p) >= 9u )
+		goto st7;
+	goto st0;
+tr13:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
 	{
 	tok = p;
 }
-	break;
-	case 14:
-#line 55 "hb-buffer-deserialize-json.rl"
+	goto st8;
+st8:
+	if ( ++p == pe )
+		goto _test_eof8;
+case 8:
+#line 202 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	if ( (*p) == 48u )
+		goto st9;
+	if ( 49u <= (*p) && (*p) <= 57u )
+		goto st11;
+	goto st0;
+tr14:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st9;
+st9:
+	if ( ++p == pe )
+		goto _test_eof9;
+case 9:
+#line 218 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto tr18;
+		case 44u: goto tr19;
+		case 125u: goto tr20;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto tr18;
+	goto st0;
+tr18:
+#line 66 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_int  (tok, p, &pos.x_advance)) return false; }
+	goto st10;
+tr30:
+#line 67 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_int  (tok, p, &pos.y_advance)) return false; }
+	goto st10;
+tr38:
+#line 63 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_uint (tok, p, &info.cluster )) return false; }
+	goto st10;
+tr51:
+#line 64 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_int  (tok, p, &pos.x_offset )) return false; }
+	goto st10;
+tr61:
+#line 65 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_int  (tok, p, &pos.y_offset )) return false; }
+	goto st10;
+tr70:
+#line 55 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
 	{
 	if (!hb_font_glyph_from_string (font,
 					tok, p - tok,
 					&info.codepoint))
 	  return false;
 }
-	break;
-	case 15:
-#line 62 "hb-buffer-deserialize-json.rl"
+	goto st10;
+tr72:
+#line 62 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
 	{ if (!parse_uint (tok, p, &info.codepoint)) return false; }
-	break;
-	case 8:
-#line 63 "hb-buffer-deserialize-json.rl"
-	{ if (!parse_uint (tok, p, &info.cluster )) return false; }
-	break;
-	case 10:
-#line 64 "hb-buffer-deserialize-json.rl"
-	{ if (!parse_int  (tok, p, &pos.x_offset )) return false; }
-	break;
-	case 12:
-#line 65 "hb-buffer-deserialize-json.rl"
-	{ if (!parse_int  (tok, p, &pos.y_offset )) return false; }
-	break;
-	case 3:
-#line 66 "hb-buffer-deserialize-json.rl"
-	{ if (!parse_int  (tok, p, &pos.x_advance)) return false; }
-	break;
-	case 6:
-#line 67 "hb-buffer-deserialize-json.rl"
-	{ if (!parse_int  (tok, p, &pos.y_advance)) return false; }
-	break;
-	case 16:
-#line 62 "hb-buffer-deserialize-json.rl"
-	{ if (!parse_uint (tok, p, &info.codepoint)) return false; }
-#line 43 "hb-buffer-deserialize-json.rl"
-	{
-	buffer->add_info (info);
-	if (buffer->in_error)
-	  return false;
-	buffer->pos[buffer->len - 1] = pos;
-	*end_ptr = p;
-}
-	break;
-	case 9:
-#line 63 "hb-buffer-deserialize-json.rl"
-	{ if (!parse_uint (tok, p, &info.cluster )) return false; }
-#line 43 "hb-buffer-deserialize-json.rl"
-	{
-	buffer->add_info (info);
-	if (buffer->in_error)
-	  return false;
-	buffer->pos[buffer->len - 1] = pos;
-	*end_ptr = p;
-}
-	break;
-	case 11:
-#line 64 "hb-buffer-deserialize-json.rl"
-	{ if (!parse_int  (tok, p, &pos.x_offset )) return false; }
-#line 43 "hb-buffer-deserialize-json.rl"
-	{
-	buffer->add_info (info);
-	if (buffer->in_error)
-	  return false;
-	buffer->pos[buffer->len - 1] = pos;
-	*end_ptr = p;
-}
-	break;
-	case 13:
-#line 65 "hb-buffer-deserialize-json.rl"
-	{ if (!parse_int  (tok, p, &pos.y_offset )) return false; }
-#line 43 "hb-buffer-deserialize-json.rl"
-	{
-	buffer->add_info (info);
-	if (buffer->in_error)
-	  return false;
-	buffer->pos[buffer->len - 1] = pos;
-	*end_ptr = p;
-}
-	break;
-	case 4:
-#line 66 "hb-buffer-deserialize-json.rl"
-	{ if (!parse_int  (tok, p, &pos.x_advance)) return false; }
-#line 43 "hb-buffer-deserialize-json.rl"
-	{
-	buffer->add_info (info);
-	if (buffer->in_error)
-	  return false;
-	buffer->pos[buffer->len - 1] = pos;
-	*end_ptr = p;
-}
-	break;
-	case 7:
-#line 67 "hb-buffer-deserialize-json.rl"
-	{ if (!parse_int  (tok, p, &pos.y_advance)) return false; }
-#line 43 "hb-buffer-deserialize-json.rl"
-	{
-	buffer->add_info (info);
-	if (buffer->in_error)
-	  return false;
-	buffer->pos[buffer->len - 1] = pos;
-	*end_ptr = p;
-}
-	break;
-#line 624 "hb-buffer-deserialize-json.hh"
+	goto st10;
+st10:
+	if ( ++p == pe )
+		goto _test_eof10;
+case 10:
+#line 264 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto st10;
+		case 44u: goto st2;
+		case 125u: goto tr22;
 	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto st10;
+	goto st0;
+tr20:
+#line 66 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_int  (tok, p, &pos.x_advance)) return false; }
+#line 43 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	buffer->add_info (info);
+	if (buffer->in_error)
+	  return false;
+	buffer->pos[buffer->len - 1] = pos;
+	*end_ptr = p;
+}
+	goto st44;
+tr22:
+#line 43 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	buffer->add_info (info);
+	if (buffer->in_error)
+	  return false;
+	buffer->pos[buffer->len - 1] = pos;
+	*end_ptr = p;
+}
+	goto st44;
+tr32:
+#line 67 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_int  (tok, p, &pos.y_advance)) return false; }
+#line 43 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	buffer->add_info (info);
+	if (buffer->in_error)
+	  return false;
+	buffer->pos[buffer->len - 1] = pos;
+	*end_ptr = p;
+}
+	goto st44;
+tr40:
+#line 63 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_uint (tok, p, &info.cluster )) return false; }
+#line 43 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	buffer->add_info (info);
+	if (buffer->in_error)
+	  return false;
+	buffer->pos[buffer->len - 1] = pos;
+	*end_ptr = p;
+}
+	goto st44;
+tr53:
+#line 64 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_int  (tok, p, &pos.x_offset )) return false; }
+#line 43 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	buffer->add_info (info);
+	if (buffer->in_error)
+	  return false;
+	buffer->pos[buffer->len - 1] = pos;
+	*end_ptr = p;
+}
+	goto st44;
+tr63:
+#line 65 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_int  (tok, p, &pos.y_offset )) return false; }
+#line 43 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	buffer->add_info (info);
+	if (buffer->in_error)
+	  return false;
+	buffer->pos[buffer->len - 1] = pos;
+	*end_ptr = p;
+}
+	goto st44;
+tr74:
+#line 62 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{ if (!parse_uint (tok, p, &info.codepoint)) return false; }
+#line 43 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	buffer->add_info (info);
+	if (buffer->in_error)
+	  return false;
+	buffer->pos[buffer->len - 1] = pos;
+	*end_ptr = p;
+}
+	goto st44;
+st44:
+	if ( ++p == pe )
+		goto _test_eof44;
+case 44:
+#line 359 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto st44;
+		case 44u: goto st45;
+		case 93u: goto st46;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto st44;
+	goto st0;
+st45:
+	if ( ++p == pe )
+		goto _test_eof45;
+case 45:
+	switch( (*p) ) {
+		case 32u: goto st1;
+		case 123u: goto tr2;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto st1;
+	goto st0;
+st46:
+	if ( ++p == pe )
+		goto _test_eof46;
+case 46:
+	goto st0;
+tr15:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st11;
+st11:
+	if ( ++p == pe )
+		goto _test_eof11;
+case 11:
+#line 394 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto tr18;
+		case 44u: goto tr19;
+		case 125u: goto tr20;
+	}
+	if ( (*p) > 13u ) {
+		if ( 48u <= (*p) && (*p) <= 57u )
+			goto st11;
+	} else if ( (*p) >= 9u )
+		goto tr18;
+	goto st0;
+st12:
+	if ( ++p == pe )
+		goto _test_eof12;
+case 12:
+	if ( (*p) == 34u )
+		goto st13;
+	goto st0;
+st13:
+	if ( ++p == pe )
+		goto _test_eof13;
+case 13:
+	switch( (*p) ) {
+		case 32u: goto st13;
+		case 58u: goto st14;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto st13;
+	goto st0;
+st14:
+	if ( ++p == pe )
+		goto _test_eof14;
+case 14:
+	switch( (*p) ) {
+		case 32u: goto st14;
+		case 45u: goto tr25;
+		case 48u: goto tr26;
+	}
+	if ( (*p) > 13u ) {
+		if ( 49u <= (*p) && (*p) <= 57u )
+			goto tr27;
+	} else if ( (*p) >= 9u )
+		goto st14;
+	goto st0;
+tr25:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st15;
+st15:
+	if ( ++p == pe )
+		goto _test_eof15;
+case 15:
+#line 449 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	if ( (*p) == 48u )
+		goto st16;
+	if ( 49u <= (*p) && (*p) <= 57u )
+		goto st17;
+	goto st0;
+tr26:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st16;
+st16:
+	if ( ++p == pe )
+		goto _test_eof16;
+case 16:
+#line 465 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto tr30;
+		case 44u: goto tr31;
+		case 125u: goto tr32;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto tr30;
+	goto st0;
+tr27:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st17;
+st17:
+	if ( ++p == pe )
+		goto _test_eof17;
+case 17:
+#line 484 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto tr30;
+		case 44u: goto tr31;
+		case 125u: goto tr32;
+	}
+	if ( (*p) > 13u ) {
+		if ( 48u <= (*p) && (*p) <= 57u )
+			goto st17;
+	} else if ( (*p) >= 9u )
+		goto tr30;
+	goto st0;
+st18:
+	if ( ++p == pe )
+		goto _test_eof18;
+case 18:
+	if ( (*p) == 108u )
+		goto st19;
+	goto st0;
+st19:
+	if ( ++p == pe )
+		goto _test_eof19;
+case 19:
+	if ( (*p) == 34u )
+		goto st20;
+	goto st0;
+st20:
+	if ( ++p == pe )
+		goto _test_eof20;
+case 20:
+	switch( (*p) ) {
+		case 32u: goto st20;
+		case 58u: goto st21;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto st20;
+	goto st0;
+st21:
+	if ( ++p == pe )
+		goto _test_eof21;
+case 21:
+	switch( (*p) ) {
+		case 32u: goto st21;
+		case 48u: goto tr36;
+	}
+	if ( (*p) > 13u ) {
+		if ( 49u <= (*p) && (*p) <= 57u )
+			goto tr37;
+	} else if ( (*p) >= 9u )
+		goto st21;
+	goto st0;
+tr36:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st22;
+st22:
+	if ( ++p == pe )
+		goto _test_eof22;
+case 22:
+#line 545 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto tr38;
+		case 44u: goto tr39;
+		case 125u: goto tr40;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto tr38;
+	goto st0;
+tr37:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st23;
+st23:
+	if ( ++p == pe )
+		goto _test_eof23;
+case 23:
+#line 564 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto tr38;
+		case 44u: goto tr39;
+		case 125u: goto tr40;
+	}
+	if ( (*p) > 13u ) {
+		if ( 48u <= (*p) && (*p) <= 57u )
+			goto st23;
+	} else if ( (*p) >= 9u )
+		goto tr38;
+	goto st0;
+st24:
+	if ( ++p == pe )
+		goto _test_eof24;
+case 24:
+	switch( (*p) ) {
+		case 120u: goto st25;
+		case 121u: goto st31;
+	}
+	goto st0;
+st25:
+	if ( ++p == pe )
+		goto _test_eof25;
+case 25:
+	if ( (*p) == 34u )
+		goto st26;
+	goto st0;
+st26:
+	if ( ++p == pe )
+		goto _test_eof26;
+case 26:
+	switch( (*p) ) {
+		case 32u: goto st26;
+		case 58u: goto st27;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto st26;
+	goto st0;
+st27:
+	if ( ++p == pe )
+		goto _test_eof27;
+case 27:
+	switch( (*p) ) {
+		case 32u: goto st27;
+		case 45u: goto tr46;
+		case 48u: goto tr47;
+	}
+	if ( (*p) > 13u ) {
+		if ( 49u <= (*p) && (*p) <= 57u )
+			goto tr48;
+	} else if ( (*p) >= 9u )
+		goto st27;
+	goto st0;
+tr46:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st28;
+st28:
+	if ( ++p == pe )
+		goto _test_eof28;
+case 28:
+#line 628 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	if ( (*p) == 48u )
+		goto st29;
+	if ( 49u <= (*p) && (*p) <= 57u )
+		goto st30;
+	goto st0;
+tr47:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st29;
+st29:
+	if ( ++p == pe )
+		goto _test_eof29;
+case 29:
+#line 644 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto tr51;
+		case 44u: goto tr52;
+		case 125u: goto tr53;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto tr51;
+	goto st0;
+tr48:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st30;
+st30:
+	if ( ++p == pe )
+		goto _test_eof30;
+case 30:
+#line 663 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto tr51;
+		case 44u: goto tr52;
+		case 125u: goto tr53;
+	}
+	if ( (*p) > 13u ) {
+		if ( 48u <= (*p) && (*p) <= 57u )
+			goto st30;
+	} else if ( (*p) >= 9u )
+		goto tr51;
+	goto st0;
+st31:
+	if ( ++p == pe )
+		goto _test_eof31;
+case 31:
+	if ( (*p) == 34u )
+		goto st32;
+	goto st0;
+st32:
+	if ( ++p == pe )
+		goto _test_eof32;
+case 32:
+	switch( (*p) ) {
+		case 32u: goto st32;
+		case 58u: goto st33;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto st32;
+	goto st0;
+st33:
+	if ( ++p == pe )
+		goto _test_eof33;
+case 33:
+	switch( (*p) ) {
+		case 32u: goto st33;
+		case 45u: goto tr56;
+		case 48u: goto tr57;
+	}
+	if ( (*p) > 13u ) {
+		if ( 49u <= (*p) && (*p) <= 57u )
+			goto tr58;
+	} else if ( (*p) >= 9u )
+		goto st33;
+	goto st0;
+tr56:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st34;
+st34:
+	if ( ++p == pe )
+		goto _test_eof34;
+case 34:
+#line 718 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	if ( (*p) == 48u )
+		goto st35;
+	if ( 49u <= (*p) && (*p) <= 57u )
+		goto st36;
+	goto st0;
+tr57:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st35;
+st35:
+	if ( ++p == pe )
+		goto _test_eof35;
+case 35:
+#line 734 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto tr61;
+		case 44u: goto tr62;
+		case 125u: goto tr63;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto tr61;
+	goto st0;
+tr58:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st36;
+st36:
+	if ( ++p == pe )
+		goto _test_eof36;
+case 36:
+#line 753 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto tr61;
+		case 44u: goto tr62;
+		case 125u: goto tr63;
+	}
+	if ( (*p) > 13u ) {
+		if ( 48u <= (*p) && (*p) <= 57u )
+			goto st36;
+	} else if ( (*p) >= 9u )
+		goto tr61;
+	goto st0;
+st37:
+	if ( ++p == pe )
+		goto _test_eof37;
+case 37:
+	if ( (*p) == 34u )
+		goto st38;
+	goto st0;
+st38:
+	if ( ++p == pe )
+		goto _test_eof38;
+case 38:
+	switch( (*p) ) {
+		case 32u: goto st38;
+		case 58u: goto st39;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto st38;
+	goto st0;
+st39:
+	if ( ++p == pe )
+		goto _test_eof39;
+case 39:
+	switch( (*p) ) {
+		case 32u: goto st39;
+		case 34u: goto st40;
+		case 48u: goto tr67;
+	}
+	if ( (*p) > 13u ) {
+		if ( 49u <= (*p) && (*p) <= 57u )
+			goto tr68;
+	} else if ( (*p) >= 9u )
+		goto st39;
+	goto st0;
+st40:
+	if ( ++p == pe )
+		goto _test_eof40;
+case 40:
+	if ( (*p) > 90u ) {
+		if ( 97u <= (*p) && (*p) <= 122u )
+			goto tr69;
+	} else if ( (*p) >= 65u )
+		goto tr69;
+	goto st0;
+tr69:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st41;
+st41:
+	if ( ++p == pe )
+		goto _test_eof41;
+case 41:
+#line 818 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 34u: goto tr70;
+		case 95u: goto st41;
+	}
+	if ( (*p) < 48u ) {
+		if ( 45u <= (*p) && (*p) <= 46u )
+			goto st41;
+	} else if ( (*p) > 57u ) {
+		if ( (*p) > 90u ) {
+			if ( 97u <= (*p) && (*p) <= 122u )
+				goto st41;
+		} else if ( (*p) >= 65u )
+			goto st41;
+	} else
+		goto st41;
+	goto st0;
+tr67:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st42;
+st42:
+	if ( ++p == pe )
+		goto _test_eof42;
+case 42:
+#line 845 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto tr72;
+		case 44u: goto tr73;
+		case 125u: goto tr74;
+	}
+	if ( 9u <= (*p) && (*p) <= 13u )
+		goto tr72;
+	goto st0;
+tr68:
+#line 51 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
+	{
+	tok = p;
+}
+	goto st43;
+st43:
+	if ( ++p == pe )
+		goto _test_eof43;
+case 43:
+#line 864 "/Data/typesetting/tx-research/build/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.hh"
+	switch( (*p) ) {
+		case 32u: goto tr72;
+		case 44u: goto tr73;
+		case 125u: goto tr74;
+	}
+	if ( (*p) > 13u ) {
+		if ( 48u <= (*p) && (*p) <= 57u )
+			goto st43;
+	} else if ( (*p) >= 9u )
+		goto tr72;
+	goto st0;
+	}
+	_test_eof1: cs = 1; goto _test_eof; 
+	_test_eof2: cs = 2; goto _test_eof; 
+	_test_eof3: cs = 3; goto _test_eof; 
+	_test_eof4: cs = 4; goto _test_eof; 
+	_test_eof5: cs = 5; goto _test_eof; 
+	_test_eof6: cs = 6; goto _test_eof; 
+	_test_eof7: cs = 7; goto _test_eof; 
+	_test_eof8: cs = 8; goto _test_eof; 
+	_test_eof9: cs = 9; goto _test_eof; 
+	_test_eof10: cs = 10; goto _test_eof; 
+	_test_eof44: cs = 44; goto _test_eof; 
+	_test_eof45: cs = 45; goto _test_eof; 
+	_test_eof46: cs = 46; goto _test_eof; 
+	_test_eof11: cs = 11; goto _test_eof; 
+	_test_eof12: cs = 12; goto _test_eof; 
+	_test_eof13: cs = 13; goto _test_eof; 
+	_test_eof14: cs = 14; goto _test_eof; 
+	_test_eof15: cs = 15; goto _test_eof; 
+	_test_eof16: cs = 16; goto _test_eof; 
+	_test_eof17: cs = 17; goto _test_eof; 
+	_test_eof18: cs = 18; goto _test_eof; 
+	_test_eof19: cs = 19; goto _test_eof; 
+	_test_eof20: cs = 20; goto _test_eof; 
+	_test_eof21: cs = 21; goto _test_eof; 
+	_test_eof22: cs = 22; goto _test_eof; 
+	_test_eof23: cs = 23; goto _test_eof; 
+	_test_eof24: cs = 24; goto _test_eof; 
+	_test_eof25: cs = 25; goto _test_eof; 
+	_test_eof26: cs = 26; goto _test_eof; 
+	_test_eof27: cs = 27; goto _test_eof; 
+	_test_eof28: cs = 28; goto _test_eof; 
+	_test_eof29: cs = 29; goto _test_eof; 
+	_test_eof30: cs = 30; goto _test_eof; 
+	_test_eof31: cs = 31; goto _test_eof; 
+	_test_eof32: cs = 32; goto _test_eof; 
+	_test_eof33: cs = 33; goto _test_eof; 
+	_test_eof34: cs = 34; goto _test_eof; 
+	_test_eof35: cs = 35; goto _test_eof; 
+	_test_eof36: cs = 36; goto _test_eof; 
+	_test_eof37: cs = 37; goto _test_eof; 
+	_test_eof38: cs = 38; goto _test_eof; 
+	_test_eof39: cs = 39; goto _test_eof; 
+	_test_eof40: cs = 40; goto _test_eof; 
+	_test_eof41: cs = 41; goto _test_eof; 
+	_test_eof42: cs = 42; goto _test_eof; 
+	_test_eof43: cs = 43; goto _test_eof; 
 
-_again:
-	if ( cs == 0 )
-		goto _out;
-	if ( ++p != pe )
-		goto _resume;
 	_test_eof: {}
 	_out: {}
 	}
 
-#line 125 "hb-buffer-deserialize-json.rl"
+#line 125 "/Data/typesetting/tx-research/harfbuzz-1.4.8/src/hb-buffer-deserialize-json.rl"
 
 
   *end_ptr = p;
