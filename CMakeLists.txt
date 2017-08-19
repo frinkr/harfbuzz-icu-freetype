@@ -265,7 +265,9 @@ set(HARFBUZZ_SRC_FILES
     )
 
 list(APPEND HARFBUZZ_SRC_FILES "${CMAKE_CURRENT_SOURCE_DIR}/config.h")
-add_library(harfbuzz ${HARFBUZZ_SRC_FILES})
+file(GLOB HARFBUZZ_HEADER_FILES "harfbuzz/src/*.h")
+
+add_library(harfbuzz ${HARFBUZZ_SRC_FILES} ${HARFBUZZ_HEADER_FILES})
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   set_source_files_properties(${HARFBUZZ_SRC_FILES}
